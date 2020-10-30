@@ -1,0 +1,35 @@
+
+PROCEDURE sort_insertion(var T: ARRAY_OF INTEGER[])
+VAR
+    i,j,elt:INTEGER:=0;
+BEGIN
+   FOR i FROM 1 TO T.length-1 STEP 1  DO
+       elt:=T[i];
+       j:=i-1;
+       WHILE (j>=0 and T[j]>elt) DO
+           T[j+1]:=T[j];
+           j:=j-1;
+       END_WHILE
+       T[j+1]:=elt;
+   END_FOR
+   write(T)
+END
+
+
+
+
+ALGORITHM SORT_CHECKPOINT
+VAR
+    i,n:INTEGER:=0;
+    arr : ARRAY_OF INTEGER[];
+BEGIN
+    WRITE("donner la longeur du tableau")
+    read(n)
+    arr.length:=n;
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        write("remplir le tableau");
+        read(arr[i]);
+    END_FOR
+    sort_insertion(arr);
+    write(arr)
+END
